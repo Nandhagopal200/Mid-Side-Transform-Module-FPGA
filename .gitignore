@@ -1,18 +1,67 @@
-# Build and Release Folders
-bin-debug/
-bin-release/
-[Oo]bj/
-[Bb]in/
+# ============================================================================
+# FPGA / Vivado
+# ============================================================================
 
-# Other files and folders
-.settings/
+# Vivado projects & runs
+*.xpr
+*.jou
+*.log
+*.str
+*.cache/
+*.runs/
+*.hw/
+*.sim/
+*.ip_user_files/
+*.gen/
+*.srcs/
 
-# Executables
-*.swf
-*.air
-*.ipa
-*.apk
+# Block Design outputs
+*.bd
+*.hwh
+*.xsa
+*.bit
 
-# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
-# should NOT be excluded as they contain compiler settings and other important
-# information for Eclipse / Flash Builder.
+# Reports
+*.rpt
+*.dcp
+*.pb
+*.xml
+
+# ============================================================================
+# Simulation
+# ============================================================================
+
+# XSIM / ModelSim / Questa
+xsim.dir/
+*.wdb
+*.vcd
+*.fst
+*.lxt
+*.log
+
+# ============================================================================
+# OS / Editor
+# ============================================================================
+
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.bak
+
+# ============================================================================
+# Python / Plotting (results only, scripts allowed)
+# ============================================================================
+
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+
+# ============================================================================
+# Temporary / Local
+# ============================================================================
+
+tmp/
+temp/
+local/
