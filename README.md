@@ -165,6 +165,28 @@ The design is published as a **reference implementation**.
 
 ---
 
+## Bare-Metal Driver (AXI-Lite Sanity Test)
+
+This repository includes a **minimal bare-metal driver** for the AXI-Lite control
+interface of the Mid-Side core.
+
+The driver is provided **only for sanity checking**:
+
+- AXI-Lite register accessibility
+- Mode switching (bypass / encoder / decoder)
+- Read-back correctness
+
+The bare-metal code is **not required** to use the RTL
+and is **not intended as a software API or runtime control layer**.
+
+It was used during early hardware bring-up to verify:
+deterministic register behavior and correct integration with the processing system.
+
+No firmware, application framework, or runtime dependency
+is implied by the presence of this code.
+
+---
+
 ## License
 
 Licensed under the **MIT License**.  
