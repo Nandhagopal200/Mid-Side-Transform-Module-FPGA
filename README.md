@@ -46,7 +46,7 @@ not to provide a turnkey audio solution.
 ## Architecture
 
 High-level structure:
-
+```
 AXI-Stream In
 |
 v
@@ -57,7 +57,7 @@ v
 |
 v
 AXI-Stream Out
-
+```
 
 **Design notes**
 - Processing is fully synchronous
