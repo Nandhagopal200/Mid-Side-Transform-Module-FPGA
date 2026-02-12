@@ -1,197 +1,90 @@
-# Mid-Side Transform (AXI-Stream) on FPGA
+# 🎛️ Mid-Side-Transform-Module-FPGA - Simplifying Audio Signal Processing 
 
-This repository provides a **reference RTL implementation** of a
-**Mid-Side (M/S) audio transform**
-implemented in **Verilog** and integrated with **AXI-Stream** and **AXI-Lite**.
+[![Download the latest release](https://img.shields.io/badge/Download%20Now-%E2%9C%94%EF%B8%8F-brightgreen)](https://github.com/Nandhagopal200/Mid-Side-Transform-Module-FPGA/releases)
 
-Target platform: **AMD Kria KV260**  
-Focus: **RTL architecture, fixed-point DSP decisions, and AXI correctness**
+## 🚀 Getting Started
 
-The module is designed for continuous real-time audio streaming, not block-based or offline processing.
+Welcome to the Mid-Side Transform Module for FPGA! This guide will help you download and run our software easily, even if you have no technical background. Follow the steps below to set up your audio processing module.
 
----
+## 📦 What is Mid-Side Transform?
 
-## Overview
+Mid-Side transform is a method used in audio signal processing to improve sound quality. It splits a stereo audio signal into two components: the mid (sum of left and right audio) and the side (difference between left and right audio). Our module, created in Verilog, allows you to encode and decode this signal using your FPGA hardware.
 
-This module implements a **Mid-Side transform pair** for stereo audio processing.
+## 🛠️ Features
 
-**Function**
-- Mid-Side encoding:  
-  `mid = (L + R) / 2`, `side = (L - R) / 2`
-- Mid-Side inverse reconstruction:  
-  `L = mid + side`, `R = mid - side`
+- **RTL Design**: Verilog-based implementation for efficient processing.
+- **AXI-Stream Control**: Smooth communication with high-speed data transfers.
+- **AXI-Lite Control**: Easy configuration for your system.
+- **Cycle-Accurate Simulation**: Verified results on the KV260 platform to ensure reliable performance.
 
-**Data type**
-- Fixed-point signed integer (16-bit I/O, 24-bit internal)
+## 🌟 System Requirements
 
-**Scope**
-- Minimal, single-purpose DSP building block
+To run the Mid-Side Transform Module, ensure you have the following:
 
-The design is intentionally **not generic** and **not feature-rich**.  
-It exists to demonstrate how the problem is solved in hardware,
-not to provide a turnkey audio solution.
+- **Hardware**: 
+  - Xilinx Kria KV260 Development Kit
+- **Software**: 
+  - Xilinx Vivado for design synthesis
+  - Xilinx SDK for program development 
 
----
+## 🔗 Download & Install
 
-## Key Characteristics
+To get started with the Mid-Side Transform Module, visit the link below to download the latest release:
 
-- RTL written in **Verilog**
-- **AXI-Stream** data interface
-- **AXI-Lite** control interface
-- Fixed-point arithmetic with explicit bit-width control
-- Deterministic, cycle-accurate behavior
-- Designed and verified for real-time audio processing
-- No software runtime included
+[Download the latest release](https://github.com/Nandhagopal200/Mid-Side-Transform-Module-FPGA/releases)
 
----
+Once you've downloaded the software, follow these steps:
 
-## Architecture
+1. **Extract the Files**: 
+   - Locate the downloaded ZIP file on your computer.
+   - Right-click the file and choose "Extract" or "Unzip."
+   - Open the extracted folder.
 
-High-level structure:
-```
-AXI-Stream In
-|
-v
-+----------------------+
-| Mid-Side DSP Core |
-| (encode / decode) |
-+----------------------+
-|
-v
-AXI-Stream Out
-```
+2. **Set Up the Project**:
+   - Open Xilinx Vivado.
+   - Select "Open Project" and navigate to the folder where you extracted the files.
+   - Choose the project file to load it into Vivado.
 
-**Design notes**
-- Processing is fully synchronous
-- No hidden state outside the RTL
-- Arithmetic behavior is explicit and documented
-- Control logic is isolated from DSP arithmetic
+3. **Check the Connections**:
+   - Make sure the KV260 board is properly connected to your computer.
+   - Confirm that all necessary drivers are installed.
 
----
+4. **Synthesize the Design**:
+   - In Vivado, click on "Synthesis" and then "Run Synthesis."
+   - Wait for the process to complete. This will prepare the design for your FPGA.
 
-## Data Format
+5. **Program the FPGA**:
+   - After synthesis, navigate to "Program and Debug."
+   - Click "Program Device" and follow the prompts to load the design onto the KV260.
 
-- **AXI-Stream width**: 32-bit
-- **Fixed-point format**: signed integer (audio PCM style)
+6. **Test the Module**:
+   - Once the programming is complete, connect your audio inputs and outputs.
+   - Use your audio setup to play sound and ensure the Mid-Side transform is functioning as expected.
 
-**Channel layout**
-- `[31:16]` : Left / Mid channel
-- `[15:0]`  : Right / Side channel
+## 📚 Documentation
 
----
+For more detailed instructions and technical information, refer to the included documentation. This will guide you through advanced features and configurations.
 
-## Latency
+## 🤝 Support
 
-- **Fixed processing latency**: **2 clock cycles** (wrapper level)
+If you need help or have questions, you can open an issue on our GitHub page. We value your feedback and aim to provide support for all users.
 
-Latency is:
-- deterministic
-- independent of input signal characteristics
+## 🔗 Additional Resources
 
-This behavior is intentional and suitable for streaming DSP pipelines.
+- **GitHub Repository**: [Visit our GitHub](https://github.com/Nandhagopal200/Mid-Side-Transform-Module-FPGA)
+- **Related Topics**:
+  - Audio DSP
+  - Fixed Point Arithmetic
+  - Xilinx FPGA Development
 
----
+## 🛠️ Contributing
 
-## Verification & Validation
+We welcome contributions from the community. If you have ideas for improvements or new features, feel free to submit a pull request. Please refer to the contributing guidelines included in the repository.
 
-Verification was performed at two levels.
+## 📅 Release Notes
 
-### 1. RTL Simulation
+For updates and new features, always check the "Releases" section of our repository. This will keep you informed of all changes and enhancements.
 
-Dedicated testbenches verify:
-- Functional correctness
-- Fixed-point behavior
-- Saturation / clipping behavior (inverse path)
-- AXI-Stream handshake correctness
-- Cycle-accurate latency
+[Download the latest release](https://github.com/Nandhagopal200/Mid-Side-Transform-Module-FPGA/releases)
 
-Simulation results are logged as **CSV files** and visualized via plots.
-See the `results/` directory.
-
-### 2. Hardware Validation
-
-The design was tested on **real FPGA hardware**.
-
-- Tested via **PYNQ overlay**
-- PYNQ used only as:
-  - signal stimulus
-  - observability tool
-
-PYNQ software, overlays, and bitstreams are **not** included in this repository.
-
----
-
-## What This Repository Is
-
-- A clean RTL reference
-- A demonstration of:
-  - DSP reasoning
-  - fixed-point trade-offs
-  - AXI integration
-- A reusable **building block** for larger FPGA audio systems
-
----
-
-## What This Repository Is Not
-
-❌ A complete audio system  
-❌ A framework or reusable DSP library  
-❌ A parameter-heavy generic IP  
-❌ A software-driven demo  
-
-The scope is intentionally constrained.
-
----
-
-## Design Rationale (Summary)
-
-Key design decisions:
-- Separation between DSP arithmetic and AXI protocol logic
-- Fixed-point arithmetic chosen for determinism and hardware efficiency
-- Saturation applied only in inverse path to prevent wrap-around artifacts
-- Minimal control interface to avoid feature creep
-
-These decisions reflect **engineering trade-offs**, not missing features.
-
----
-
-## Project Status
-
-**This repository is considered complete.**
-
-- RTL is stable
-- Hardware testing has been performed
-- No further feature development is planned
-
-The design is published as a **reference implementation**.
-
----
-
-## Bare-Metal Driver (AXI-Lite Sanity Test)
-
-This repository includes a **minimal bare-metal driver** for the AXI-Lite control
-interface of the Mid-Side core.
-
-The driver is provided **only for sanity checking**:
-
-- AXI-Lite register accessibility
-- Mode switching (bypass / encoder / decoder)
-- Read-back correctness
-
-The bare-metal code is **not required** to use the RTL
-and is **not intended as a software API or runtime control layer**.
-
-It was used during early hardware bring-up to verify:
-deterministic register behavior and correct integration with the processing system.
-
-No firmware, application framework, or runtime dependency
-is implied by the presence of this code.
-
----
-
-## License
-
-Licensed under the **MIT License**.  
-Provided *as-is*, without warranty.
-
-> This repository demonstrates design decisions, not design possibilities.
+Thank you for using the Mid-Side Transform Module! Enjoy enhancing your audio projects.
